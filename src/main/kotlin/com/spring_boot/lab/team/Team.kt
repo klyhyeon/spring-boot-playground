@@ -1,26 +1,22 @@
-package com.spring_boot.lab.controller
+package com.spring_boot.lab.team
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDateTime
 
 @Entity
-class User(
+class Team(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     val name: String,
     @CreationTimestamp
+    @Column(name = "created_at")
     val createdAt: LocalDateTime? = null,
     @UpdateTimestamp
+    @Column(name = "updated_at")
     val updatedAt: LocalDateTime? = null,
 ) {
 
-    override fun toString(): String {
-        return "User(id=$id, name='$name', createdAt=$createdAt, updatedAt=$updatedAt)"
-    }
 }
